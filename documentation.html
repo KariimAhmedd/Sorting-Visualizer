@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualizer Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3, h4 {
+            color: #2563eb;
+            margin-top: 2em;
+        }
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(to right, #2563eb, #4f46e5);
+            color: white;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            color: white;
+            margin: 0;
+        }
+        code {
+            background-color: #f1f5f9;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+        }
+        pre {
+            background-color: #f1f5f9;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .complexity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .complexity-table th, .complexity-table td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+        .complexity-table th {
+            background-color: #f8fafc;
+        }
+        .algorithm-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        .code-explanation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .line-explanation {
+            background-color: #f8fafc;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Sorting Visualizer Documentation</h1>
+        <p>Interactive visualization of sorting algorithms using React</p>
+    </div>
+
+    <h2>Documentation Report</h2>
+
+    <h3>Introduction</h3>
+    <p>The Sorting Visualizer is an interactive web application that provides a visual representation of various sorting algorithms in action. This project aims to help users understand how different sorting algorithms work by providing real-time visualization of the sorting process.</p>
+    
+    <p><strong>Technology Stack:</strong></p>
+    <ul>
+        <li>React.js with TypeScript</li>
+        <li>Modern CSS with Flexbox and Grid</li>
+        <li>SVG for icons and visual elements</li>
+        <li>State management for real-time updates</li>
+    </ul>
+
+    <h2>Detailed Algorithm Documentation</h2>
+
+    <div class="algorithm-section">
+        <h3>1. Bubble Sort</h3>
+        <p>Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.</p>
+        
+        <h4>Implementation:</h4>
+        <pre>
+for (let i = 0; i < arr.length - 1; i++) {
+    for (let j = 0; j < arr.length - 1 - i; j++) {
+        if (arr[j] > arr[j + 1]) {
+            [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        }
+    }
+}</pre>
+
+        <h4>Line-by-Line Explanation:</h4>
+        <div class="line-explanation">
+            <p><strong>Line 1:</strong> Outer loop that runs from 0 to n-1, where n is the array length. Each iteration of this loop will place one element in its final position.</p>
+            <p><strong>Line 2:</strong> Inner loop that compares adjacent elements. The loop runs up to arr.length - 1 - i because after each i iteration, i elements are already sorted at the end.</p>
+            <p><strong>Line 3-5:</strong> If the current element is greater than the next element, swap them using destructuring assignment.</p>
+        </div>
+
+        <h4>Complexity Analysis:</h4>
+        <ul>
+            <li>Time Complexity: O(n²) in worst and average cases</li>
+            <li>Space Complexity: O(1) as it only uses a constant amount of extra space</li>
+            <li>Best Case: O(n) when the array is already sorted</li>
+        </ul>
+    </div>
+
+    <div class="algorithm-section">
+        <h3>2. Insertion Sort</h3>
+        <p>Insertion Sort builds the final sorted array one item at a time by repeatedly inserting a new element into the sorted portion of the array.</p>
+        
+        <h4>Implementation:</h4>
+        <pre>
+for (let i = 1; i < arr.length; i++) {
+    let key = arr[i];
+    let j = i - 1;
+    while (j >= 0 && arr[j] > key) {
+        arr[j + 1] = arr[j];
+        j--;
+    }
+    arr[j + 1] = key;
+}</pre>
+
+        <h4>Line-by-Line Explanation:</h4>
+        <div class="line-explanation">
+            <p><strong>Line 1:</strong> Loop starts from the second element (index 1) as we consider the first element as already sorted.</p>
+            <p><strong>Line 2:</strong> Store the current element as key for comparisons.</p>
+            <p><strong>Line 3:</strong> Initialize j to look at the element before current position.</p>
+            <p><strong>Line 4-7:</strong> While we find elements greater than key, shift them right to make space for key.</p>
+            <p><strong>Line 8:</strong> Place the key in its correct position in the sorted portion.</p>
+        </div>
+
+        <h4>Complexity Analysis:</h4>
+        <ul>
+            <li>Time Complexity: O(n²) in worst and average cases</li>
+            <li>Space Complexity: O(1) as it sorts in-place</li>
+            <li>Best Case: O(n) when the array is nearly sorted</li>
+        </ul>
+    </div>
+
+    <div class="algorithm-section">
+        <h3>3. Selection Sort</h3>
+        <p>Selection Sort divides the input list into two parts: sorted and unsorted. It repeatedly selects the smallest element from the unsorted portion and adds it to the sorted portion.</p>
+        
+        <h4>Implementation:</h4>
+        <pre>
+for (let i = 0; i < arr.length - 1; i++) {
+    let minIdx = i;
+    for (let j = i + 1; j < arr.length; j++) {
+        if (arr[j] < arr[minIdx]) {
+            minIdx = j;
+        }
+    }
+    if (minIdx !== i) {
+        [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]];
+    }
+}</pre>
+
+        <h4>Line-by-Line Explanation:</h4>
+        <div class="line-explanation">
+            <p><strong>Line 1:</strong> Outer loop that defines the boundary of unsorted array.</p>
+            <p><strong>Line 2:</strong> Assume the current position contains the minimum value.</p>
+            <p><strong>Line 3-7:</strong> Inner loop finds the minimum element in the unsorted portion.</p>
+            <p><strong>Line 8-10:</strong> If a new minimum is found, swap it with the first element of unsorted portion.</p>
+        </div>
+
+        <h4>Complexity Analysis:</h4>
+        <ul>
+            <li>Time Complexity: O(n²) in all cases</li>
+            <li>Space Complexity: O(1)</li>
+            <li>Number of Swaps: O(n)</li>
+        </ul>
+    </div>
+
+    <div class="algorithm-section">
+        <h3>4. Merge Sort</h3>
+        <p>Merge Sort is a divide-and-conquer algorithm that recursively breaks down a problem into smaller, more manageable subproblems until they become simple enough to solve directly.</p>
+        
+        <h4>Implementation:</h4>
+        <pre>
+function mergeSort(arr) {
+    if (arr.length <= 1) return arr;
+    
+    const mid = Math.floor(arr.length / 2);
+    const left = mergeSort(arr.slice(0, mid));
+    const right = mergeSort(arr.slice(mid));
+    
+    return merge(left, right);
+}</pre>
+
+        <h4>Line-by-Line Explanation:</h4>
+        <div class="line-explanation">
+            <p><strong>Line 2:</strong> Base case: if array has 1 or fewer elements, it's already sorted.</p>
+            <p><strong>Line 4:</strong> Find the middle point to divide array into two halves.</p>
+            <p><strong>Line 5-6:</strong> Recursively sort the left and right halves.</p>
+            <p><strong>Line 8:</strong> Merge the sorted halves back together.</p>
+        </div>
+
+        <h4>Complexity Analysis:</h4>
+        <ul>
+            <li>Time Complexity: O(n log n) in all cases</li>
+            <li>Space Complexity: O(n)</li>
+            <li>Stable: Yes</li>
+        </ul>
+    </div>
+
+    <div class="algorithm-section">
+        <h3>5. Quick Sort</h3>
+        <p>Quick Sort is another divide-and-conquer algorithm that works by selecting a 'pivot' element and partitioning the array around it.</p>
+        
+        <h4>Implementation:</h4>
+        <pre>
+function quickSort(arr, low, high) {
+    if (low < high) {
+        const pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}</pre>
+
+        <h4>Line-by-Line Explanation:</h4>
+        <div class="line-explanation">
+            <p><strong>Line 2:</strong> Check if there are at least 2 elements to sort.</p>
+            <p><strong>Line 3:</strong> Partition the array and get the pivot index.</p>
+            <p><strong>Line 4-5:</strong> Recursively sort elements before and after partition.</p>
+        </div>
+
+        <h4>Complexity Analysis:</h4>
+        <ul>
+            <li>Time Complexity: O(n log n) average case, O(n²) worst case</li>
+            <li>Space Complexity: O(log n)</li>
+            <li>Not Stable</li>
+        </ul>
+    </div>
+
+    <div class="algorithm-section">
+        <h3>6. Heap Sort</h3>
+        <p>Heap Sort is a comparison-based sorting algorithm that uses a binary heap data structure. It divides the input into a sorted and an unsorted region, and iteratively shrinks the unsorted region by extracting the largest element.</p>
+        
+        <h4>Implementation:</h4>
+        <pre>
+function heapSort(arr) {
+    // Build max heap
+    for (let i = Math.floor(n/2) - 1; i >= 0; i--)
+        heapify(arr, n, i);
+        
+    // Extract elements from heap
+    for (let i = n - 1; i > 0; i--) {
+        [arr[0], arr[i]] = [arr[i], arr[0]];
+        heapify(arr, i, 0);
+    }
+}</pre>
+
+        <h4>Line-by-Line Explanation:</h4>
+        <div class="line-explanation">
+            <p><strong>Line 3-4:</strong> Build max heap by calling heapify on all non-leaf nodes.</p>
+            <p><strong>Line 7-10:</strong> Repeatedly extract maximum element and rebuild heap.</p>
+        </div>
+
+        <h4>Complexity Analysis:</h4>
+        <ul>
+            <li>Time Complexity: O(n log n) in all cases</li>
+            <li>Space Complexity: O(1)</li>
+            <li>Not Stable</li>
+        </ul>
+    </div>
+
+    <div class="algorithm-section">
+        <h3>7. Shell Sort</h3>
+        <p>Shell Sort is an optimization of insertion sort that allows the exchange of items that are far apart. It starts by sorting pairs of elements far apart from each other, then progressively reducing the gap between elements to be compared.</p>
+        
+        <h4>Implementation:</h4>
+        <pre>
+function shellSort(arr) {
+    for (let gap = Math.floor(n/2); gap > 0; gap = Math.floor(gap/2)) {
+        for (let i = gap; i < n; i++) {
+            let temp = arr[i];
+            let j;
+            for (j = i; j >= gap && arr[j-gap] > temp; j -= gap) {
+                arr[j] = arr[j-gap];
+            }
+            arr[j] = temp;
+        }
+    }
+}</pre>
+
+        <h4>Line-by-Line Explanation:</h4>
+        <div class="line-explanation">
+            <p><strong>Line 2:</strong> Start with a large gap and reduce it in each iteration.</p>
+            <p><strong>Line 3-9:</strong> Perform insertion sort with the current gap.</p>
+            <p><strong>Line 6-8:</strong> Move elements that are gap positions apart.</p>
+        </div>
+
+        <h4>Complexity Analysis:</h4>
+        <ul>
+            <li>Time Complexity: O(n log n) to O(n²) depending on gap sequence</li>
+            <li>Space Complexity: O(1)</li>
+            <li>Not Stable</li>
+        </ul>
+    </div>
+
+    <h2>Implementation Details</h2>
+    <h3>Core Components</h3>
+    <ul>
+        <li><code>SortingVisualizer.tsx</code>: Main component that handles the visualization logic</li>
+        <li><code>Navbar.tsx</code>: Navigation component with controls and options</li>
+        <li><code>algorithms.ts</code>: Contains implementation of sorting algorithms</li>
+        <li><code>sorting.ts</code>: Utility functions for animation and array manipulation</li>
+    </ul>
+
+    <h3>User Guide</h3>
+    <h4>Running the Application:</h4>
+    <pre>
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start</pre>
+
+    <h4>Using the Visualizer:</h4>
+    <ol>
+        <li>Select an algorithm from the sidebar</li>
+        <li>Choose between random or custom input mode</li>
+        <li>For custom input: Enter numbers separated by commas</li>
+        <li>Adjust the visualization speed using the slider</li>
+        <li>Click "Sort Array" to start the visualization</li>
+    </ol>
+
+    <h4>Input Format:</h4>
+    <ul>
+        <li>Random Mode: Automatically generates an array of 30 numbers (0-99)</li>
+        <li>Custom Mode: Accepts comma-separated numbers (e.g., "5,2,8,1,9")</li>
+    </ul>
+
+    <h4>Expected Output:</h4>
+    <ul>
+        <li>Visual representation of bars with heights corresponding to array values</li>
+        <li>Real-time highlighting of elements being compared</li>
+        <li>Final sorted array displayed both as bars and numbers</li>
+        <li>Complexity information and implementation details in the sidebar</li>
+    </ul>
+
+    <h2>Results and Evaluation</h2>
+    <p>The visualizer effectively demonstrates:</p>
+    <ul>
+        <li>Real-time visualization of sorting algorithms</li>
+        <li>Interactive control over the sorting process</li>
+        <li>Educational value through visual feedback</li>
+        <li>Responsive design that works across different screen sizes</li>
+    </ul>
+
+    <p>Key Features:</p>
+    <ul>
+        <li>Modern UI with intuitive controls</li>
+        <li>Real-time array state display</li>
+        <li>Algorithm complexity information</li>
+        <li>Custom input support</li>
+        <li>Adjustable visualization speed</li>
+        <li>Detailed algorithm explanations</li>
+        <li>Interactive visualization with color-coded states</li>
+    </ul>
+</body>
+</html> 

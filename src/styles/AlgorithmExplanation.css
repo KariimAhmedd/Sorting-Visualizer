@@ -1,0 +1,158 @@
+.algorithm-explanation {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.algorithm-explanation h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.4em;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 10px;
+}
+
+.explanation-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.steps {
+  grid-column: 1 / -1;
+}
+
+.steps h4, .example h4, .best-for h4 {
+  color: #4a5568;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.steps ol {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.steps li {
+  margin-bottom: 8px;
+  color: #4a5568;
+  line-height: 1.4;
+}
+
+.example {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #60a5fa;
+}
+
+.example p {
+  color: #4a5568;
+  font-family: monospace;
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.best-for {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #34d399;
+}
+
+.best-for p {
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+.detailed-steps {
+  grid-column: 1 / -1;
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.step-item {
+  font-family: monospace;
+  line-height: 1.5;
+}
+
+.step-header {
+  font-weight: bold;
+  color: #4a5568;
+  margin-top: 10px;
+}
+
+.step-with-arrow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-left: 20px;
+}
+
+.step-array {
+  background: #e2e8f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #2d3748;
+}
+
+.step-action {
+  color: #4a5568;
+  font-style: italic;
+}
+
+.arrow {
+  color: #60a5fa;
+  margin: 0 4px;
+  font-weight: bold;
+}
+
+.key-points {
+  grid-column: 1 / -1;
+  background: #f0f9ff;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #60a5fa;
+}
+
+.key-points ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.key-points li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.key-points li:before {
+  content: "•";
+  color: #60a5fa;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.complexity-info {
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid #f59e0b;
+}
+
+.complexity-info p {
+  margin: 5px 0;
+  color: #4a5568;
+} 
