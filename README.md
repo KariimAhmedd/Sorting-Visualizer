@@ -2,7 +2,7 @@
 
 An interactive web application that visualizes various sorting algorithms to help understand how they work.
 
-![Sorting Visualizer Screenshot](https://github.com/KariimAhmedd/Sorting-Visualizer/raw/main/screenshots/sorting_visualizer.png)
+![Sorting Visualizer Screenshot](https://github.com/KariimAhmedd/Sorting-Visualizer/raw/main/screenshots/Screenshot.png)
 
 ## Features
 
